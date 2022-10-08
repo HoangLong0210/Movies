@@ -7,11 +7,15 @@ const movie = require("./routes/MovieRouter");
 const genre = require("./routes/GenreRouter");
 const viewer = require("./routes/ViewerRouter");
 const upload = require("./routes/Upload");
+const person = require("./routes/PersonRouter");
+const episode = require("./routes/EpisodeRouter");
+const service = require("./routes/ServiceRoute");
+const manager = require("./routes/ManagerRouter");
 
 require("dotenv").config();
 //console.log(process.env);
 const app = express();
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -34,5 +38,9 @@ app.use("/movie", movie);
 app.use("/genre", genre);
 app.use("/viewer", viewer);
 app.use("/file", upload);
+app.use("/person", person);
+app.use("/episode", episode);
+app.use("/service", service);
+app.use("/manager", manager);
 
 app.listen(port, () => console.log(`Listenning on port ${port}`));
